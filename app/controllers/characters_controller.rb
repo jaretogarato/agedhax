@@ -1,6 +1,6 @@
 class CharactersController < ApplicationController
-  before_action :set_game, only: [:index, :create]
-  before_action :set_character, only: [:show, :update, :destroy]
+  before_action :set_game, only: [:index, :create, :form]
+  before_action :set_character, only: [:show, :update, :destroy, :form]
 
   def index
     render json: @game.characters
@@ -8,6 +8,12 @@ class CharactersController < ApplicationController
 
   def show
     render json: @character
+  end
+
+  def form
+    # @character = params[:id] ? Character.find(params[:id]) : Character.new
+      @character = params[:id] ? @game.character.find(params[:id]) : Character.new
+    render partial: 'form'
   end
 
   def create

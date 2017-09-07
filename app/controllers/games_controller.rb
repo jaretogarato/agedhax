@@ -14,6 +14,12 @@ class GamesController < ApplicationController
     render partial: 'form'
   end
 
+  def character_form
+    # @character = params[:id] ? Character.find(params[:id]) : Character.new
+      @character = params[:id] ? @game.character.find(params[:id]) : Character.new
+    render partial: 'character_form'
+  end
+
   def create
     @game = Game.new(game_params)
     if @game.save
@@ -46,4 +52,3 @@ class GamesController < ApplicationController
     end
 
 end
-

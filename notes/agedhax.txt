@@ -1,0 +1,25 @@
+
+* first: lets just identify the characters and their powers with data-ids and give them shared classes
+* no need to style them as links
+when /games/index is rendered
+when div id character-list ul id characters is populated
+
+----
+
+for toggleCharacter --
+  does character-form correlate to #games-form?
+  what correlates to #games-list?
+
+  LINE 15, 31
+
+-----
+add edit and delete buttons
+
+
+---
+EDIT:
+
+
+
+---
+DELETE:

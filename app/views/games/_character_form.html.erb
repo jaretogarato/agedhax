@@ -1,0 +1,11 @@
+<hr />
+<div id="character-form">
+  <%#= form_for [@game, @character] do |f| %>
+  <%= form_for @character do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :power %>
+    <%= f.text_field :power %>
+    <%= f.submit %>
+  <% end %>
+</div>
