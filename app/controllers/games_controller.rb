@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: [:show, :update, :destroy]
+  before_action :set_game, only: [:show, :update, :destroy, :character_form]
 
   def index
     @games = Game.all
@@ -12,12 +12,6 @@ class GamesController < ApplicationController
   def form
     @game = params[:id] ? Game.find(params[:id]) : Game.new
     render partial: 'form'
-  end
-
-  def character_form
-    # @character = params[:id] ? Character.find(params[:id]) : Character.new
-      @character = params[:id] ? @game.character.find(params[:id]) : Character.new
-    render partial: 'character_form'
   end
 
   def create
@@ -49,6 +43,10 @@ class GamesController < ApplicationController
 
     def game_params
       params.require(:game).permit(:name, :description)
+    end
+
+    def character_params
+      params.require(:character).permit(:name, :power)
     end
 
 end

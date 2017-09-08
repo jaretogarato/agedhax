@@ -16,7 +16,7 @@ $(document).ready(function () {
     $('#games-list').toggle();
 
     if (showForm) {
-      console.log(editingGame);
+      // console.log(editingGame);
       $.ajax({
         url: '/game_form',
         method: 'GET',
@@ -30,19 +30,14 @@ $(document).ready(function () {
   function toggleCharacter() {
     showCharacterForm = !showCharacterForm;
     $('#character-form').remove();
-    $('#character-list').toggle();
-    console.log('toggleCharacter');
+    $('#characters').toggle();
 
     if (showCharacterForm) {
-      console.log('showCharacterForm is true');
-
+      console.log('+showCharacterForm');
       $.ajax({
-        // url: '/games/' + currentGame.id + '/characters/' + editingCharacter + 'form',
         url: '/character_form',
         method: 'GET',
-        data: { game_id: editingGame, id: editingCharacter }
-        // data: { game_id: currentGame.id, id: editingCharacter }
-        // data: { character_id: editingCharacter, id: editingCharacter }
+        data: { game_id: currentGame.id, id: editingCharacter }
       }).done( function(html) {
         $('#toggle-character').after(html);
       });
@@ -141,7 +136,7 @@ $(document).ready(function () {
 
   $(document).on('click', '#edit-game', function() {
     editingGame = $(this).siblings('.game-item').data().id;
-    // console.log(editingGame);
+    console.log(editingGame);
     toggle();
   });
 

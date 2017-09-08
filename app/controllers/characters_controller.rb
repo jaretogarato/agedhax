@@ -11,8 +11,8 @@ class CharactersController < ApplicationController
   end
 
   def form
-    # @character = params[:id] ? Character.find(params[:id]) : Character.new
-      @character = params[:id] ? @game.character.find(params[:id]) : Character.new
+    @character = params[:id] ? Character.find(params[:id]) : Character.new
+    # @character = params[:id] ? @game.character.find(params[:id]) : Character.new
     render partial: 'form'
   end
 
